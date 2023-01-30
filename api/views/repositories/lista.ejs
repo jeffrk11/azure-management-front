@@ -1,0 +1,29 @@
+<div class="d-flex flex-column w-100">
+
+    <div class="d-flex flex-column d-flex align-items-center border-5 p-2 m-2 bg-white">
+        <h1 id="txt-count-repositorios"></h1>
+    </div>
+    
+    <div class="row m-0 p-0 w-100 justify-content-center" id="div_cards_dinamicos">
+
+        <!-- cards dinamicos -->
+        <div class="col-3 d-flex flex-column d-flex align-items-center border-5 p-2 m-1 bg-white">
+            <!-- icone api -->
+            <div class="rounded-circle p-2 bg-cinza-claro m-2">
+                <i class="fa-xl fa-solid m-1 fa-brands fa-java color-transp-forte"></i>
+            </div>
+            <div class="d-flex justify-content-center w-100">
+                <h5>api-sendgrid-exemplo</h5>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+<script type="text/javascript" src="/repositories/script_lista.js"></script>
+<script type="text/javascript">
+    //variaveis passadas pelo back, dessa forma para o ejs renderizar
+    let repositorios = JSON.parse('<%- repositorios %>')
+    
+</script>

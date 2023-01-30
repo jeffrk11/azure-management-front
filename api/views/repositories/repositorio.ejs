@@ -1,0 +1,265 @@
+<div class="row">
+
+    <!-- coluna esquerda -->
+    <div class="col-9 p-2">
+        <!-- ambientes -->
+        <div class="border-5 bg-white shadow-sm d-flex flex-column p-2">
+            <h3 class="mb-1" style="text-align: center;">Ambientes</h3>
+            <div class="w-100 mb-3" style="border: 1px; border-style: solid; border-color: rgba(175, 175, 175, 0.288);"></div>
+            <!-- dev -->
+            <div class="d-flex "> 
+                    <div class="col-1 d-flex justify-content-center align-items-center"> 
+                        <h5><b>DEV</b></h5>
+                    </div>
+                    <div class="col-9 "> 
+                        <h5 class="mb-0" style="white-space:nowrap;"><%= repositorio['url_dev'] %></h5>
+                        <h6><%= repositorio?.['yamlDev']?.['contextPath'] ?? '' %></h6>
+                    </div>
+                    <div class="col-1 d-flex justify-content-center align-items-center"> 
+                        <i id="ambiente_dev_liveness" class="fa-solid fa-circle-notch loading" style="text-align: center;font-size: 1.6em; color: #f50057"></i>
+                    </div>
+                    <div class="col-1 d-flex justify-content-center align-items-center"> 
+                        <i id="ambiente_dev_readiness" class="fa-solid fa-circle-notch loading" style="text-align: center;font-size: 1.6em; color: #f50057"></i>
+                    </div>
+            </div>
+            <!-- hml -->
+            <div class="d-flex "> 
+                <div class="col-1 d-flex justify-content-center align-items-center"> 
+                    <h5><b>HML</b></h5>
+                </div>
+                <div class="col-9 "> 
+                    <h5 class="mb-0" style="white-space:nowrap;"><%= repositorio['url_hml'] %></h5>
+                    <h6><%= repositorio?.['yamlHml']?.['contextPath'] ?? '' %></h6>
+                </div>
+                <div class="col-1 d-flex justify-content-center align-items-center"> 
+                    <i id="ambiente_hml_liveness" class="fa-solid fa-circle-notch loading" style="text-align: center;font-size: 1.6em; color: #f50057"></i>
+                </div>
+                <div class="col-1 d-flex justify-content-center align-items-center"> 
+                    <i id="ambiente_hml_readiness" class="fa-solid fa-circle-notch loading" style="text-align: center;font-size: 1.6em; color: #f50057"></i>
+                </div>
+            </div>
+            <!-- prd -->
+            <div class="d-flex "> 
+                <div class="col-1 d-flex justify-content-center align-items-center"> 
+                    <h5><b>PRD</b></h5>
+                </div>
+                <div class="col-9 "> 
+                    <h5 class="mb-0" style="white-space:nowrap;"><%= repositorio['url_prd'] %></h5>
+                    <h6><%= repositorio?.['yamlPrd']?.['contextPath'] ?? '' %></h6>
+                </div>
+                <div class="col-1 d-flex justify-content-center align-items-center"> 
+                    <i id="ambiente_prd_liveness" class="fa-solid fa-circle-notch loading" style="text-align: center;font-size: 1.6em; color: #f50057"></i>
+                </div>
+                <div class="col-1 d-flex justify-content-center align-items-center"> 
+                    <i id="ambiente_prd_readiness" class="fa-solid fa-circle-notch loading" style="text-align: center;font-size: 1.6em; color: #f50057"></i>
+                </div>
+            </div>
+        </div>
+        <!-- readme -->
+        <div class="border-5 bg-white shadow-sm d-flex flex-column p-3 mt-2">
+            <h3 style="text-align: center;">Readme</h3>
+            <div class="w-100 mb-3" style="border: 1px; border-style: solid; border-color: rgba(175, 175, 175, 0.288);"></div>
+<h1>Sobre</h1>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis mollitia iste laboriosam consequuntur animi quibusdam voluptatibus sunt ex esse dolores. Eligendi, amet est. Quae tempora eum quas nobis beatae nostrum.</p>
+<h1>Endpoints</h1>
+<details>
+<summary><h2>Criar Conta de usuário</h2></summary>
+<p>Cria uma conta de usuário no banco de dados.
+<br><strong>URL</strong> : <code>/api/accounts/</code>
+<br><strong>Method</strong> : <code>POST</code>
+<table>
+    <thead>
+    <tr>
+    <th><strong>campos</strong></th>
+    <th><strong>tipo</strong></th>
+    <th><strong>descrição</strong></th>
+    <th><strong>obrigatório</strong></th>
+
+</tr>
+</thead>
+    <tbody>
+    <tr>
+    <td>name</td>
+    <td>String</td>
+    <td>nome do usuário</td>
+    <td>sim</td>
+</tr>
+    <tr>
+    <td>nickname</td>
+    <td>String</td>
+    <td>apelido para o usuário</td>
+    <td>não</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplo</strong>
+<pre><code class="language-json">{
+    "name": "Teste"
+}</code></pre>
+<h2>Resposta sucesso</h2>
+<p><strong>Condition</strong> : se tudo estiver ok e não existir conta para esse usuário
+<br><strong>Code</strong> : <code>201 CREATED</code>
+<br><strong>Content example</strong></p>   
+<pre><code class="language-json">{
+    "id": 123,
+    "name": "Teste",
+    "nickname": null
+}</code></pre>
+<h2>Resposta errada</h2>
+<p><strong>Condition</strong> : se a conta ja existir.
+<br><strong>Code</strong> : <code>400 BAD REQUEST</code>
+<br><strong>Content</strong> : 
+<br>
+<pre><code>{
+    "error" :123,
+    "mensagem": "usuário já existe"
+}</code></pre>
+<p><strong>Condition</strong> : Campo obrigatório não preenchido.
+<br><strong>Code</strong> : <code>400 BAD REQUEST</code>
+<br><strong>Content example</strong></p>
+<pre><code class="language-json">{
+    "error" :123,
+    "mensagem": "campo: {name} obrigatório"
+}</code></pre></details>
+
+<details>
+    <summary><h2>Deletar Conta de usuário</h2></summary>
+    <p>Deleta uma conta de usuário no banco de dados.
+    <br><strong>URL</strong> : <code>/api/accounts/{id}</code>
+    <br><strong>Method</strong> : <code>DELETE</code>
+    <table>
+        <thead>
+        <tr>
+        <th><strong>campos</strong></th>
+        <th><strong>tipo</strong></th>
+        <th><strong>descrição</strong></th>
+        <th><strong>obrigatório</strong></th>
+    </tr>
+    </thead>
+        <tbody>
+        <tr>
+        <td>id</td>
+        <td>Integer</td>
+        <td>número identificador</td>
+        <td>sim</td>
+    </tbody>
+    </table>
+    <p><strong>Exemplo</strong>
+    <pre><code>/api/accounts/123</code></pre>
+    <h2>Resposta sucesso</h2>
+    <p><strong>Condition</strong> : se tudo estiver ok e existir conta para deletar
+    <br><strong>Code</strong> : <code>204 NO CONTENT</code>
+    <br><strong>Content example</strong></p>No Content
+    <h2>Resposta errada</h2>
+    <p><strong>Condition</strong> : se a conta não existir.
+    <br><strong>Code</strong> : <code>400 BAD REQUEST</code>
+    <br><strong>Content</strong> : 
+    <br>
+    <pre><code>{
+    "error" :124,
+    "mensagem": "usuário não existe"
+}</code></pre>
+
+    <p><strong>Condition</strong> : Campo obrigatório não preenchido.
+    <br><strong>Code</strong> : <code>400 BAD REQUEST</code>
+    <br><strong>Content example</strong></p>
+    <pre><code class="language-json">{
+    "error" :123,
+    "mensagem": "campo: {id} obrigatório"
+}</code></pre></details>
+    
+    
+
+</div>
+    </div>
+    <!-- coluna direita -->
+    <div class="col-3 p-2">
+        <!-- versao e icone e nome -->
+        <div class="d-flex flex-column border-5 bg-white shadow-sm d-flex justify-content-center align-items-center"> 
+            <div class="d-flex justify-content-center align-items-center m-4"> 
+                <i class="fa-2xl fa-solid m-5 fa-brands fa-java color-transp-forte" style="font-size: 90px"></i>
+            </div>
+                <h5 class="border-5 p-2 " style="background-color: rgb(224, 224, 224);">
+                    <b><%= repositorio?.['pom']?.['version'] ?? 'not-found' %></b>
+                </h5>
+            <div class="justify-content-center align-items-center m-2"> 
+                <h4 style="text-align: center;"><%= repositorio['name'] ?? 'not-found' %></h4>
+            </div>
+        </div>
+        <!-- lastCommit -->
+        <div class="d-flex border-5 mt-2 p-2 bg-white shadow-sm d-flex flex-column justify-content-evenly align-items-center">
+            <h3 class="mb-1" style="text-align: center;">Último commit</h3>
+            <div class="w-100 mb-3" style="border: 1px; border-style: solid; border-color: rgba(175, 175, 175, 0.288);"></div>
+            <div class="row mt-1">
+                <!-- lastCommit -->
+                <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+                    <div class="m-1 w-100 justify-content-center align-items-center "> 
+                        <% if(!repositorio['lastCommit']) {%>
+                            <h4>Sem dados</h4>
+                        <%} else {%>
+                            <h4> <%= repositorio['lastCommit'] %></h4>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- status -->
+        <div class="d-flex border-5 mt-2 p-2 bg-white shadow-sm d-flex flex-column justify-content-evenly align-items-center">
+            <h3 class="mb-1" style="text-align: center;">Status</h3>
+            <div class="w-100 mb-3" style="border: 1px; border-style: solid; border-color: rgba(175, 175, 175, 0.288);"></div>
+            <div class="row mt-1">
+                <!-- manutencao -->
+                <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+                    <% if(!repositorio['inMaintence']) {%>
+                    <i class="m-1 fa-solid fa-wrench" style="color:rgb(55, 252, 114); font-size: 2em;"></i>
+                    <%} else {%>
+                    <i class="m-1 fa-solid fa-wrench" style="color:rgb(248, 32, 32); font-size: 2em;"></i>
+                    <% } %>
+                    <div class="m-1 justify-content-center align-items-center "> 
+                        <h5>Manutenção</h5>
+                    </div>
+                </div>
+                <!-- habilitado -->
+                <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+                    <% if(!repositorio['disabled']) {%>
+                        <i class="m-1 fa-solid fa-toggle-on" style="color:rgb(55, 252, 114); font-size: 2em;"></i>
+                        <%} else {%>
+                        <i class="m-1 fa-solid fa-toggle-on" style="color:rgb(248, 32, 32); font-size: 2em;"></i>
+                        <% } %>
+                    <div class="m-1 justify-content-center align-items-center "> 
+                        <h5>Habilitado</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- links -->
+        <div class="d-flex border-5 mt-2 p-2 bg-white shadow-sm d-flex flex-column justify-content-evenly align-items-center">
+            <h3 class="mb-1" style="text-align: center;">Links</h3>
+            <div class="w-100 mb-3" style="border: 1px; border-style: solid; border-color: rgba(175, 175, 175, 0.288);"></div>
+            <div class="row mt-1">
+                <!-- pipeline -->
+                <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+                    <i class="m-1 fa-solid fa-timeline" style="color: rgb(252, 189, 55); font-size: 2em;"></i>
+                    <div class="m-1 justify-content-center align-items-center "> 
+                        <h5>Pipeline</h5>
+                    </div>
+                </div>
+                <!-- repositorio -->
+                <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+                    <a href="<%= repositorio['webUrl'] %>">
+                        <i class="m-1 fa-solid fa-code-branch" style="color: rgb(107, 55, 252); font-size: 2em;"></i>
+                    </a>
+                    <div class="m-1 justify-content-center align-items-center "> 
+                        <h5>Repositório</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    let repositorio = JSON.parse('<%- JSON.stringify(repositorio) %>')
+</script>
+<script type="text/javascript" src="/repositories/script_repository.js"></script>
